@@ -35,7 +35,7 @@ import { SpinnerComponent } from '../components/spinner.component';
     <div class="flex items-center gap-3">
       <button
         [disabled]="page() === 1"
-        class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        class="rounded-sm bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
         (click)="setPage(page() - 1)"
       >
         Previous
@@ -44,7 +44,7 @@ import { SpinnerComponent } from '../components/spinner.component';
         [disabled]="
           commoditiesQuery.isRefetching() || !commoditiesQuery.data()?.next
         "
-        class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        class="rounded-sm bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
         (click)="setPage(page() + 1)"
       >
         Next

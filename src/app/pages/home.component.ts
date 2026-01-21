@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-home',
   template: ` <h1
-      class="inline-block w-full bg-gradient-to-r from-red-500 to-amber-500 bg-clip-text text-center text-transparent"
+      class="inline-block w-full bg-linear-to-r from-red-500 to-amber-500 bg-clip-text text-center text-transparent"
     >
       Tanstack Angular Query
     </h1>

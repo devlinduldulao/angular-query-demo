@@ -12,7 +12,7 @@ import { SharedModule } from '../shared/shared.module';
       <div class="block lg:hidden">
         <button
           (click)="isMenuOpen = !isMenuOpen"
-          class="flex items-center rounded border border-gray-300 px-3 py-2 text-gray-700 hover:border-gray-400 hover:text-gray-900"
+          class="flex items-center rounded-sm border border-gray-300 px-3 py-2 text-gray-700 hover:border-gray-400 hover:text-gray-900"
         >
           <svg
             class="h-3 w-3 fill-current"
@@ -26,9 +26,9 @@ import { SharedModule } from '../shared/shared.module';
       </div>
       <div
         [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }"
-        class="block w-full flex-grow lg:flex lg:w-auto lg:items-center"
+        class="block w-full grow lg:flex lg:w-auto lg:items-center"
       >
-        <div class="text-sm lg:flex-grow">
+        <div class="text-sm lg:grow">
           <a
             *ngFor="let item of items; trackBy: trackByFn"
             class="mr-4 mt-4 block text-gray-700 hover:text-rose-900 lg:mt-0 lg:inline-block"
