@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
-  injectQueryClient,
+  QueryClient,
   injectQuery,
 } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
@@ -29,7 +29,7 @@ import { Report } from '../models';
     </div>`,
 })
 export class ReportsComponent {
-  queryClient = injectQueryClient();
+  queryClient = inject(QueryClient);
   #reportService = inject(ReportService);
 
   @Output() setReportId = new EventEmitter<number>();

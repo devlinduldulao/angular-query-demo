@@ -8,7 +8,7 @@ import {
 import {
   injectMutation,
   injectQuery,
-  injectQueryClient,
+  QueryClient,
 } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
 import { names } from 'src/app/state/server/queryKey';
@@ -86,7 +86,7 @@ import { SharedModule } from '../shared/shared.module';
   </div> `,
 })
 export class MoviesComponent {
-  queryClient = injectQueryClient();
+  queryClient = inject(QueryClient);
   #movieService = inject(MovieService);
 
   cn = cn;
