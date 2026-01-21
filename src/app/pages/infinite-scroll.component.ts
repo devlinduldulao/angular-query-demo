@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { injectInfiniteQuery } from '@tanstack/angular-query-experimental';
+import { injectInfiniteQuery, InfiniteData } from '@tanstack/angular-query-experimental';
 import { CommodityService } from '../services/commodity.service';
 import { lastValueFrom } from 'rxjs';
 import { names } from '../state/server/queryKey';
 import { InViewDirective } from '../utilities/in-view.directive';
+import { CommodityPaginate } from '../models';
 
 @Component({
   selector: 'app-infinite-scroll',
@@ -70,7 +71,7 @@ export class InfiniteScrollComponent {
 
   pageSize = 7;
 
-  infiniteQuery = injectInfiniteQuery(() => ({
+  infiniteQuery = injectInfiniteQuery<CommodityPaginate, Error, InfiniteData<CommodityPaginate, number>, string[], number>(() => ({
     queryKey: [names.commodities],
     queryFn: ({ pageParam }) => {
       return lastValueFrom(

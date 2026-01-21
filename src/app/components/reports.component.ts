@@ -6,6 +6,7 @@ import {
 import { lastValueFrom } from 'rxjs';
 import { names } from '../state/server/queryKey';
 import { ReportService } from '../services/report.service';
+import { Report } from '../models';
 
 @Component({
   selector: 'app-reports',
@@ -33,7 +34,7 @@ export class ReportsComponent {
 
   @Output() setReportId = new EventEmitter<number>();
 
-  reportsQuery = injectQuery(() => ({
+  reportsQuery = injectQuery<Report[]>(() => ({
     queryKey: [names.reports],
     queryFn: () => lastValueFrom(this.#reportService.getReports$()),
     staleTime: Infinity, // default is 0 seconds

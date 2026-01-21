@@ -10,6 +10,7 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
 import { MovieService } from '../services/movie.service';
 import { names } from '../state/server/queryKey';
+import { Movie } from '../models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -63,7 +64,7 @@ export class MovieComponent {
 
   @Output() setMovieId = new EventEmitter<number>();
 
-  movieQuery = injectQuery(() => ({
+  movieQuery = injectQuery<Movie>(() => ({
     enabled: this.id() > 0,
     queryKey: [names.movie, this.id()],
     queryFn: () => {

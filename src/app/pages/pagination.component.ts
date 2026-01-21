@@ -7,6 +7,7 @@ import { CommodityService } from '../services/commodity.service';
 import { lastValueFrom } from 'rxjs';
 import { names } from '../state/server/queryKey';
 import { SpinnerComponent } from '../components/spinner.component';
+import { CommodityPaginate } from '../models';
 
 @Component({
   selector: 'app-pagination',
@@ -60,7 +61,7 @@ export class PaginationComponent {
   page = signal(1);
   pageSize = 10;
 
-  commoditiesQuery = injectQuery(() => ({
+  commoditiesQuery = injectQuery<CommodityPaginate>(() => ({
     queryKey: [names.commodities, this.page()],
     queryFn: () =>
       lastValueFrom(

@@ -93,7 +93,7 @@ export class MoviesComponent {
 
   @Output() setMovieId = new EventEmitter<number>();
 
-  moviesQuery = injectQuery(() => ({
+  moviesQuery = injectQuery<Movie[]>(() => ({
     queryKey: [names.movies],
     queryFn: () => lastValueFrom(this.#movieService.getMovies$()),
   }));
